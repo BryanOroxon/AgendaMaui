@@ -31,7 +31,7 @@
                             <StackLayout >
                                 <Frame
 
-                                    HeightRequest="170"
+                                    HeightRequest="190"
                                     MinimumWidthRequest="200"
                                     WidthRequest="500"
                                     >
