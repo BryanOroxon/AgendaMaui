@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaMAUI.Views.XamarinDayPage"
+             xmlns:vm="clr-namespace:AgendaMAUI.ViewModels"
+             xmlns:model="clr-namespace:AgendaMAUI.Models"
+             x:DataType="vm:XamarinDayViewModel"
+             Title="{Binding Title}">
+        <RefreshView
+                Command="{Binding GetXamDayCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+     
+            <Grid RowDefinitions="70,80,650,Auto,50" ColumnDefinitions="0.5*,Auto,0.5*"  ColumnSpacing="10" RowSpacing="10" >
+                <Label Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" Text="Noviembre " HorizontalOptions="Start" />
+                <Label Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Text="2022" FontSize="22" HorizontalOptions="Start" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"  Text="12" HorizontalOptions="End" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="55" />
+                
+
+                <CollectionView x:Name="XAMList"
+                                
+                                Margin="10"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                              
+                    ItemsSource="{Binding XamConfDay}" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:ConferenceDay">
+                            <StackLayout >
+                                <Frame Margin="5"
+                                       HeightRequest="200"
+                                       WidthRequest="400"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="CenterAndExpand" >
+
+                                    <Frame.Background>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop  Color="#4facfe"
+                                                          Offset="0.3"/>
+                                            <GradientStop Color="#00f2fe"
+
+                                                          Offset="0.9" />
+                                        </LinearGradientBrush>
+                                    </Frame.Background>
+                                    <Grid ColumnDefinitions="5,60,Auto,5"
+                                          RowDefinitions="60,30,30" >
+                                        <Label Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Title}" LineBreakMode="WordWrap" MaxLines="2" FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" />
+                                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Start" Text="{Binding Start }" FontSize="12" />
+                                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Start" Text="{Binding End }" FontSize="12" />
+                                        <Label Grid.Column="2" Grid.Row="1" Text="{Binding Name }" LineBreakMode="WordWrap" MaxLines="2" FontSize="18" FontAttributes="Bold" />
+                                        <Label Grid.Column="2" Grid.Row="2" Text="{Binding Description }" FontSize="14" />
+                                    </Grid>
+                                </Frame>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+                <Border WidthRequest="300"
+                        Margin="0,20,0,0"
+                    HeightRequest="100"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                    StrokeThickness="8"
+                    BackgroundColor="Purple"
+                    StrokeShape="RoundRectangle 40,3,1,40"  >
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Orange" Offset="0.1" />
+                        <GradientStop Color="OrangeRed" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Shadow>
+                    <Shadow Brush="{AppThemeBinding Light=Black, Dark=White}"
+                            Offset="20,40"
+                            Opacity="1" />
+
+                </Border.Shadow>
+
+                <Label Text="XAMARIN"
+                       TextColor="White"
+                       FontSize="30"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold" />
+            </Border>
+            </Grid>
+    </RefreshView>
+</ContentPage>

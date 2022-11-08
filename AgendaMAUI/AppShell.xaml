@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AgendaMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AgendaMAUI"
+    xmlns:views="clr-namespace:AgendaMAUI.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Agenda">
+            <ShellContent
+                Title="Day 1"
+                ContentTemplate="{DataTemplate views:MauiDayPage}"
+                Route="MauiDayPage" />
+
+       
+            <ShellContent
+                Title="Day 2"
+                ContentTemplate="{DataTemplate views:XamarinDayPage}"
+                Route="XamarinDayPage" />
+        </Tab>
+         <Tab Title="Speakers" >
+            <ShellContent
+                Title="Speaker"
+                ContentTemplate="{DataTemplate views:SpeakerPage}"
+                Route="Speakers" >
+                <ShellContent.Icon>
+                    <FontImageSource Color="Orange" Glyph="&#xe800;"  FontFamily="{OnPlatform iOS=Fontello, MacCatalyst=Fontello, WinUI=Fontello, Android=fontello.ttf}"
+                                             Size="Medium" />
+            
+                </ShellContent.Icon>
+
+            </ShellContent>
+
+            <!--ShellContent
+                Title="Speakers"
+                ContentTemplate="{DataTemplate  views:SpeakerPage}"
+                Route="Speaker" /-->
+        </Tab>
+       
+        <Tab Title="About"  >
+            <ShellContent
+                Title="About"
+                ContentTemplate="{DataTemplate views:AboutPage}"
+                Route="About" >
+                <ShellContent.Icon>
+                    <FontImageSource Color="Purple" Glyph="&#x0032;"  FontFamily="{OnPlatform iOS=Fontello, MacCatalyst=Fontello, WinUI=Fontello, Android=fontello.ttf}"
+                                             Size="Medium" />
+            
+                </ShellContent.Icon>
+
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaMAUI.Views.SpeakerDetailPage"
+             xmlns:vm="clr-namespace:AgendaMAUI.ViewModels"
+             x:DataType="vm:SpeakerDetailViewModel"
+             Title="{Binding Speaker.Name}"
+             Shell.TabBarIsVisible="False">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*,*">
+            <!-- 1. Image-->
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding Speaker.Image}"  Aspect="Fill" HeightRequest="400"/>
+            <!-- 2. Speaker Name-->
+            <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   CornerRadius="40"
+                   HasShadow="True"
+                   Margin="20,-50,20,10"
+                   BackgroundColor="#f9f9f9"
+                   HeightRequest="100">
+                <Grid
+                      RowDefinitions="Auto,Auto"
+                      VerticalOptions="Center"
+                      HorizontalOptions="FillAndExpand"
+                      RowSpacing="5"
+                      Padding="20,5">
+                    
+                    <Label
+                        Grid.Row="0"
+                        Text="{Binding Speaker.Name}"
+                        FontSize="40"
+                        FontFamily="Bold"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand" />
+                    <Label Grid.Row="1" Grid.Column="0" Margin="5,-10,5,5" HorizontalTextAlignment="Center" >
+                    <Label.FormattedText >
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="&#x003a;" TextColor="#1dcaff" FontFamily="fontello" FontSize="20" />
+                                <Span Text=" Github: " FontSize="20" TextColor="Orange" FontAttributes="Bold" />
+                                <Span Text="{Binding Speaker.Url}" TextColor="Black" FontSize="Large" />
+                            </FormattedString.Spans>
+                         </FormattedString>
+                        </Label.FormattedText>
+                </Label>
+                </Grid>
+            </Frame>
+            <!-- 3. General information-->
+             
+                <Label Grid.Row="0" Grid.Column="0"  >
+                    <Label.FormattedText >
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="&#xe802;" TextColor="#1dcaff" FontFamily="fontello" FontSize="20" />
+                                    <Span Text=" {Binding Speaker.Title }" FontSize="16" TextColor="Orange" FontAttributes="Bold" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                </Label> 
+                
+            </Grid>
+
+ 
+        </ScrollView>
+</ContentPage>

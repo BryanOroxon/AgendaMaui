@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaMAUI.Views.SpeakerPage"
+             xmlns:vm="clr-namespace:AgendaMAUI.ViewModels"
+             xmlns:model="clr-namespace:AgendaMAUI.Models"
+             x:DataType="vm:SpeakerViewModel"
+             Title="{Binding Title}">
+        <RefreshView
+                Command="{Binding GetSpeakerCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+        
+            <Grid RowDefinitions="70,80,650,Auto,50" ColumnDefinitions="0.5*,Auto,0.5*"  ColumnSpacing="10" RowSpacing="10" >
+
+                <CollectionView x:Name="SpeakerList"
+                                Margin="10"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="White"
+                                SelectionMode="Single"
+                    SelectedItem="{Binding SelectedSpeaker}"
+                    SelectionChangedCommand="{Binding GoToDetailsCommand}"
+                    ItemsSource="{Binding SpeakersConf}" >
+                    <CollectionView.ItemsLayout>
+                     <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate  >
+                        <DataTemplate x:DataType="model:Speaker">
+                            <StackLayout >
+                                <Frame Margin="10"
+                                       IsClippedToBounds="True"
+                                       HasShadow="True"
+                                       BorderColor="OrangeRed"
+                                       CornerRadius="15"
+                                       HeightRequest="320"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="CenterAndExpand" >
+                                    <Frame.Shadow>
+                                        <Shadow Brush="Black"
+                                                Offset="6,10"
+                                                Opacity="0.8    " />
+                                    </Frame.Shadow>
+                                    <StackLayout>
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontAttributes="Bold"
+                                            FontSize="Large"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Source="{Binding Image}"
+                                            Aspect="AspectFit"
+                                            HeightRequest="200"
+                                            WidthRequest="200"
+                                            HorizontalOptions="Center" />
+                                        <Frame
+                                            Margin="0,0,-15,-65"
+                                            CornerRadius="20"
+                                            BackgroundColor="Black"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="End">
+                                            <Label
+                                                Text="{Binding Title}"
+                                                FontAttributes="Bold"
+                                                FontSize="Caption"
+                                                TextColor="White"
+                                                TextTransform="Uppercase"/>
+
+                                        </Frame>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+                <Border WidthRequest="300"
+                        Margin="0,20,0,0"
+                    HeightRequest="100"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                    StrokeThickness="8"
+                    BackgroundColor="Purple"
+                    StrokeShape="RoundRectangle 40,3,1,40"  >
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Orange" Offset="0.1" />
+                        <GradientStop Color="OrangeRed" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Shadow>
+                    <Shadow Brush="{AppThemeBinding Light=Black, Dark=White}"
+                            Offset="20,40"
+                            Opacity="1" />
+
+                </Border.Shadow>
+
+                <Label Text="SPEAKERS"
+                       TextColor="White"
+                       FontSize="30"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold" />
+            </Border>
+            </Grid>
+    </RefreshView>
+</ContentPage>
