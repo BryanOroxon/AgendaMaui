@@ -78,7 +78,7 @@
                             <FormattedString.Spans>
                                 <Span Text="&#x003a;" TextColor="#1dcaff" FontFamily="fontello" FontSize="20" />
                                 <Span Text=" Github: " FontSize="20" TextColor="Orange" FontAttributes="Bold" />
-                                <Span Text="{Binding Speaker.Url}" TextColor="Black" FontSize="Large" />
+                                <Span Text="{Binding Speaker.Url}" TextColor="Black" FontSize="22" />
                             </FormattedString.Spans>
                          </FormattedString>
                     </Label.FormattedText>
