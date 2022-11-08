@@ -10,13 +10,13 @@
     <TabBar>
         <Tab Title="Agenda">
             <ShellContent
-                Title="Day 1"
+                Title="MAUI Day"
                 ContentTemplate="{DataTemplate views:MauiDayPage}"
                 Route="MauiDayPage" />
 
        
             <ShellContent
-                Title="Day 2"
+                Title="Xamarin Day"
                 ContentTemplate="{DataTemplate views:XamarinDayPage}"
                 Route="XamarinDayPage" />
         </Tab>
@@ -33,10 +33,6 @@
 
             </ShellContent>
 
-            <!--ShellContent
-                Title="Speakers"
-                ContentTemplate="{DataTemplate  views:SpeakerPage}"
-                Route="Speaker" /-->
         </Tab>
        
         <Tab Title="About"  >

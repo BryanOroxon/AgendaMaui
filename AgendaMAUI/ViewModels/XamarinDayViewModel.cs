@@ -9,7 +9,7 @@ public partial class XamarinDayViewModel: BaseViewModel
     ConferenceXAMARINService xamService;
     public XamarinDayViewModel(ConferenceXAMARINService xamService)
     {
-        Title = "Choose your next big friend";
+        Title = "Welcome to XAMARIN Day";
         this.xamService = xamService;
 
     }

@@ -10,10 +10,10 @@
                 Command="{Binding GetSpeakerCommand}"
                 IsRefreshing="{Binding IsRefreshing}">
         
-            <Grid RowDefinitions="70,80,650,Auto,50" ColumnDefinitions="0.5*,Auto,0.5*"  ColumnSpacing="10" RowSpacing="10" >
+            <Grid RowDefinitions="70,80,550,50" ColumnDefinitions="0.5*,*,0.5*"  ColumnSpacing="15" RowSpacing="15" >
 
                 <CollectionView x:Name="SpeakerList"
-                                Margin="10"
+                                Margin="-25,5,5,5"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 Grid.ColumnSpan="3"
@@ -28,12 +28,12 @@
                     <CollectionView.ItemTemplate  >
                         <DataTemplate x:DataType="model:Speaker">
                             <StackLayout >
-                                <Frame Margin="10"
+                                <Frame Margin="5"
                                        IsClippedToBounds="True"
                                        HasShadow="True"
                                        BorderColor="OrangeRed"
                                        CornerRadius="15"
-                                       HeightRequest="320"
+                                       HeightRequest="280"
                                        HorizontalOptions="Center"
                                        VerticalOptions="CenterAndExpand" >
                                     <Frame.Shadow>
@@ -44,8 +44,8 @@
                                     <StackLayout>
                                         <Label
                                             Text="{Binding Name}"
-                                            FontAttributes="Bold"
-                                            FontSize="Large"
+                                            FontFamily="Tangerine-Bold"
+                                            FontSize="20"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center" />
                                         <Image
@@ -55,8 +55,9 @@
                                             WidthRequest="200"
                                             HorizontalOptions="Center" />
                                         <Frame
-                                            Margin="0,0,-15,-65"
-                                            CornerRadius="20"
+                                            Margin="20,-20,-45,-5"
+                                            CornerRadius="15"
+                                            WidthRequest="180"
                                             BackgroundColor="Black"
                                             HorizontalOptions="End"
                                             VerticalOptions="End">
@@ -65,6 +66,8 @@
                                                 FontAttributes="Bold"
                                                 FontSize="Caption"
                                                 TextColor="White"
+                                                VerticalOptions="Start"
+                                                VerticalTextAlignment="Start"
                                                 TextTransform="Uppercase"/>
 
                                         </Frame>

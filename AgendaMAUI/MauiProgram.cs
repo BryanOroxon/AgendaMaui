@@ -14,7 +14,13 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                fonts.AddFont("fontello.ttf", "Fontello");
+                fonts.AddFont("fontello.ttf", "fontello");
+                fonts.AddFont("Tangerine-Bold.ttf", "Tangerine-Bold");
+                fonts.AddFont("Tangerine-Regular.ttf", "Tangerine-Regular");
+                fonts.AddFont("Volkhov-Bold.ttf", "Volkhov-Bold");
+                fonts.AddFont("Volkhov-Regular.ttf", "Volkhov-Regular");
+                fonts.AddFont("Lusitana-Bold.ttf", "Lusitana-Bold");
+                fonts.AddFont("Lusitana-Regular.ttf", "LusitanaRegular");
             });
 
         builder.Services.AddSingleton<ConferenceMAUIService>();

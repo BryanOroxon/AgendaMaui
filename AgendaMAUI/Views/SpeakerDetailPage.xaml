@@ -5,11 +5,22 @@
              xmlns:vm="clr-namespace:AgendaMAUI.ViewModels"
              x:DataType="vm:SpeakerDetailViewModel"
              Title="{Binding Speaker.Name}"
+             BackgroundColor="#536DFE"
              Shell.TabBarIsVisible="False">
     <ScrollView>
         <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*,*">
             <!-- 1. Image-->
             <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding Speaker.Image}"  Aspect="Fill" HeightRequest="400"/>
+            <Label Margin="10,10,0,0">
+                    <Label.FormattedText >
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="&#xe802; " TextColor="#1dcaff" FontFamily="fontello" FontSize="20" />
+                                    <Span Text=" {Binding Speaker.Title }" FontSize="16" TextColor="Orange" FontAttributes="Bold" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                    </Label.FormattedText>
+            </Label>
             <!-- 2. Speaker Name-->
             <Frame Grid.Row="1"
                    Grid.Column="0"
@@ -33,7 +44,35 @@
                         FontFamily="Bold"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="CenterAndExpand" />
-                    <Label Grid.Row="1" Grid.Column="0" Margin="5,-10,5,5" HorizontalTextAlignment="Center" >
+                    
+                </Grid>
+            </Frame>
+            <!-- 3. URL information-->
+            <Border Grid.Row="3" Grid.Column="1"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 2,2,50,50"
+                    Padding="5,25,5,5" VerticalOptions="End"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Orange"
+                                      Offset="0.1" />
+                        <GradientStop Color="Red"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#536DFE"
+                                      Offset="0.1" />
+                        <GradientStop Color="#4A00E0"
+                                      Offset="1.0" />
+                        
+                    </LinearGradientBrush>
+                </Border.Background>
+                <VerticalStackLayout >
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="5,30,0,0" >
                     <Label.FormattedText >
                         <FormattedString>
                             <FormattedString.Spans>
@@ -42,25 +81,11 @@
                                 <Span Text="{Binding Speaker.Url}" TextColor="Black" FontSize="Large" />
                             </FormattedString.Spans>
                          </FormattedString>
-                        </Label.FormattedText>
+                    </Label.FormattedText>
                 </Label>
-                </Grid>
-            </Frame>
-            <!-- 3. General information-->
-             
-                <Label Grid.Row="0" Grid.Column="0"  >
-                    <Label.FormattedText >
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="&#xe802;" TextColor="#1dcaff" FontFamily="fontello" FontSize="20" />
-                                    <Span Text=" {Binding Speaker.Title }" FontSize="16" TextColor="Orange" FontAttributes="Bold" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                </Label> 
                 
+                </VerticalStackLayout>
+            </Border>
             </Grid>
-
- 
         </ScrollView>
 </ContentPage>
